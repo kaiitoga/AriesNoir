@@ -188,7 +188,7 @@ export const Achievements = () => {
                 
                 <h1 className="font-lora text-6xl md:text-7xl lg:text-9xl font-black leading-tight mb-8">
                   <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">
-                    実績
+                    実績目標
                   </span>
                 </h1>
                 

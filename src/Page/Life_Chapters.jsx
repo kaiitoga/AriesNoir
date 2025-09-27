@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Header } from '../Components/Common/Header'
 import { Footer } from '../Components/Common/Footer'
+import { LoadingScreen } from '../Components/Common/Animation/LoadingScreen'
 import { Star, GraduationCap, Briefcase, Flame, Crown, Heart, Users, Sparkles } from 'lucide-react';
 
 const LIFE_CHAPTERS = [
@@ -98,18 +99,18 @@ const CORE_VALUES = [
   }
 ];
 
-// カラフルな背景円 - 画面幅内に収める
+// カラフルな背景円 - シンプル版
 const ColorfulCircle = ({ color, size, top, left }) => (
   <div
     className="absolute opacity-35"
     style={{
       top: `${top}%`,
       left: `${left}%`,
-      width: `${Math.min(size, window.innerWidth * 0.7)}px`,
-      height: `${Math.min(size, window.innerWidth * 0.7)}px`,
+      width: `${size}px`,
+      height: `${size}px`,
       backgroundColor: color,
       borderRadius: '50%',
-      filter: 'blur(1px)',
+      filter: 'blur(1px)'
     }}
   />
 );
@@ -125,16 +126,16 @@ const Card3D = ({ children, index }) => {
 
 export const Life_Chapters = () => {
   return (
-    <div className="w-full mx-auto overflow-x-hidden">
+    <div className="w-full mx-auto overflow-x-hidden relative">
       <Header />
       
       {/* 固定背景円 */}
-      <div className="w-full max-w-screen-2xl fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="w-full mx-auto h-full relative">
-          <ColorfulCircle color="#FF1493" size={800} top={5} left={5} />
-          <ColorfulCircle color="#00FFFF" size={1350} top={50} left={75} />
-          <ColorfulCircle color="#FF4500" size={1450} top={20} left={50} />
-          <ColorfulCircle color="#9932CC" size={1300} top={70} left={15} />
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="max-w-screen-2xl mx-auto h-full relative">
+          <ColorfulCircle color="#FF1493" size={700} top={5} left={8} />
+          <ColorfulCircle color="#00FFFF" size={350} top={50} left={75} />
+          <ColorfulCircle color="#FF4500" size={850} top={20} left={45} />
+          <ColorfulCircle color="#9932CC" size={500} top={70} left={20} />
         </div>
       </div>
       
