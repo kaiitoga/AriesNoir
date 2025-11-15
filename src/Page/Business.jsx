@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Header } from "../Components/Common/Header";
 import { Footer } from "../Components/Common/Footer";
 import { LoadingScreen } from "../Components/Common/Animation/LoadingScreen";
@@ -6,6 +6,15 @@ import { List, Check, Handshake } from "lucide-react";
 
 export const Business = () => {
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    window.scrollTo(0, 0);
+  };
 
   return (
     <>
@@ -133,7 +142,7 @@ export const Business = () => {
             <div className="w-4/5 min-w-80 max-w-5xl">
               <img
                 className="w-full"
-                src="/img/business/経営理念.png"
+                src="../img/business/経営理念.png"
                 alt="philosophy"
               />
             </div>
@@ -228,7 +237,7 @@ export const Business = () => {
                 <p>501号室</p>
               </div>
             </div>
-            <div className="w-80 h-[250px] sm:w-[450px] sm:h-[350px] lg:w-550px lg:w-[450px]">
+            <div className="w-80 h-[250px] sm:w-[450px] sm:h-[350px] lg:w-[450px]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6477.884181086521!2d139.70830367770998!3d35.72764269999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d6ec58035cf%3A0x6d6dc0b7dd285a3f!2z44Ki44O844OQ44Kk44Or5rGg6KGLRUFTVA!5e0!3m2!1sja!2sjp!4v1753498851215!5m2!1sja!2sjp"
                 style={{ border: 0 }}

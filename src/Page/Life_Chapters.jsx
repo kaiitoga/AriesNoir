@@ -125,240 +125,253 @@ const Card3D = ({ children, index }) => {
 };
 
 export const Life_Chapters = () => {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    window.scrollTo(0, 0);
+    };
   return (
-    <div className="w-full mx-auto overflow-x-hidden relative">
-      <Header />
-      
-      {/* 固定背景円 */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="max-w-screen-2xl mx-auto h-full relative">
-          <ColorfulCircle color="#FF1493" size={700} top={5} left={8} />
-          <ColorfulCircle color="#00FFFF" size={350} top={50} left={75} />
-          <ColorfulCircle color="#FF4500" size={850} top={20} left={45} />
-          <ColorfulCircle color="#9932CC" size={500} top={70} left={20} />
+    <>
+      {isLoading && (
+        <LoadingScreen onComplete={() => setIsLoading(false)} />
+      )}
+      <div className="w-full mx-auto overflow-x-hidden relative">
+        <Header />
+        {/* 固定背景円 */}
+        <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+          <div className="max-w-screen-2xl mx-auto h-full relative">
+            <ColorfulCircle color="#FF1493" size={700} top={5} left={8} />
+            <ColorfulCircle color="#00FFFF" size={350} top={50} left={75} />
+            <ColorfulCircle color="#FF4500" size={850} top={20} left={45} />
+            <ColorfulCircle color="#9932CC" size={500} top={70} left={20} />
+          </div>
         </div>
-      </div>
-      
-      <main className="pt-20 relative z-10">
-          {/* ヒーローセクション - 背景画像版 */}
-          <section className="relative min-h-screen flex items-center justify-start px-4 sm:px-8 py-24 md:py-32 overflow-hidden">
-            {/* 背景画像 */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{
-                backgroundImage: 'url("../img/human/photo7.jpg")',
-                filter: 'brightness(0.8)'
-              }}
-            />
-            
-            {/* オーバーレイ */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10"></div>
-            
-            <div className="relative z-10 max-w-screen-2xl mx-auto w-full">
-              <div className="max-w-4xl">
-                <div className="mb-8">
-                  <div className="flex items-center space-x-4 mb-8">
-                    <div className="w-16 h-px bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
-                    <span className="text-red-400 text-sm tracking-[0.4em] uppercase font-light">Life Story</span>
-                    <div className="w-16 h-px bg-gradient-to-l from-transparent via-red-500 to-transparent"></div>
+        
+        <main className="pt-20 relative z-10">
+            {/* ヒーローセクション - 背景画像版 */}
+            <section className="relative min-h-screen flex items-center justify-start px-4 sm:px-8 py-24 md:py-32 overflow-hidden">
+              {/* 背景画像 */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                style={{
+                  backgroundImage: 'url("../img/human/photo7.jpg")',
+                  filter: 'brightness(0.8)'
+                }}
+              />
+              
+              {/* オーバーレイ */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10"></div>
+              
+              <div className="relative z-10 max-w-screen-2xl mx-auto w-full">
+                <div className="max-w-4xl">
+                  <div className="mb-8">
+                    <div className="flex items-center space-x-4 mb-8">
+                      <div className="w-16 h-px bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
+                      <span className="text-red-400 text-sm tracking-[0.4em] uppercase font-light">Life Story</span>
+                      <div className="w-16 h-px bg-gradient-to-l from-transparent via-red-500 to-transparent"></div>
+                    </div>
+                  </div>
+                  
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black leading-tight mb-8 text-white">
+                    <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent block mb-4">
+                      若菜龍之介
+                    </span>
+                    <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl lg:text-6xl block">
+                      人生の軌跡
+                    </span>
+                  </h1>
+                  
+                  <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 font-light leading-relaxed mb-8">
+                    1996年千葉生まれ、<br />
+                    地獄を味わい、ぶち上げられた男の<br />
+                    <span className="text-white font-semibold">28年間の物語</span>
+                  </p>
+                  
+                  <div className="flex items-center space-x-3">
+                    <span className="text-gray-400 text-lg">千葉県千葉市花見川区 → 全国</span>
                   </div>
                 </div>
-                
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black leading-tight mb-8 text-white">
-                  <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent block mb-4">
-                    若菜龍之介
-                  </span>
-                  <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl lg:text-6xl block">
-                    人生の軌跡
-                  </span>
-                </h1>
-                
-                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 font-light leading-relaxed mb-8">
-                  1996年千葉生まれ、<br />
-                  地獄を味わい、ぶち上げられた男の<br />
-                  <span className="text-white font-semibold">28年間の物語</span>
-                </p>
-                
-                <div className="flex items-center space-x-3">
-                  <span className="text-gray-400 text-lg">千葉県千葉市花見川区 → 全国</span>
+              </div>
+            </section>
+              
+            {/* 5つの章セクション */}
+            <section className="relative min-h-screen bg-black/80 backdrop-blur-sm text-white">
+              <div className="relative z-10 py-16 px-4">
+                <div className="max-w-7xl mx-auto">
+                  {/* モバイル用縦並び */}
+                  <div className="block lg:hidden space-y-12">
+                    {LIFE_CHAPTERS.map((chapter, index) => (
+                      <div 
+                        key={index} 
+                        className="w-full"
+                        style={{
+                          transform: `rotate(${[-0.5, 0.3, -0.2, 0.4, -0.3][index]}deg)`
+                        }}
+                      >
+                        <Card3D index={index}>
+                          <div className="bg-gradient-to-br from-white/8 to-white/12 backdrop-blur-2xl rounded-3xl p-6 shadow-2xl border border-white/15 hover:border-white/25 transition-all duration-500">
+                            <div className="mb-4">
+                              <span className={`inline-block px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase bg-gradient-to-r ${chapter.gradient} text-white shadow-lg`}>
+                                {chapter.period}
+                              </span>
+                            </div>
+                            
+                            <h3 className="text-xl md:text-2xl font-black text-white mb-3 leading-tight">
+                              {chapter.title}
+                            </h3>
+                            
+                            <h4 className={`text-lg font-bold bg-gradient-to-r ${chapter.gradient} bg-clip-text text-transparent mb-4`}>
+                              {chapter.subtitle}
+                            </h4>
+                            
+                            <p className="text-gray-300 leading-relaxed text-sm mb-6">
+                              {chapter.description}
+                            </p>
+                            
+                            <div className="space-y-3">
+                              {chapter.keyPoints.slice(0, 2).map((point, pointIndex) => (
+                                <div key={pointIndex} className="flex items-start space-x-3">
+                                  <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${chapter.gradient} mt-2 flex-shrink-0`}></div>
+                                  <p className="text-gray-400 leading-relaxed text-xs">{point}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </Card3D>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* デスクトップ用重なり配置 */}
+                  <div className="hidden lg:block relative" style={{ minHeight: '1600px' }}>
+                    {LIFE_CHAPTERS.map((chapter, index) => (
+                      <div 
+                        key={index} 
+                        className="absolute w-full max-w-lg"
+                        style={{
+                          top: `${[0, 250, 480, 720, 960][index]}px`,
+                          left: `${[8, 52, 15, 58, 30][index]}%`,
+                          transform: `rotate(${[-0.8, 0.6, -0.4, 0.9, -0.5][index]}deg)`,
+                          zIndex: 5 - index
+                        }}
+                      >
+                        <Card3D index={index}>
+                          <div className="bg-gradient-to-br from-white/8 to-white/12 backdrop-blur-2xl rounded-3xl p-8 shadow-2xl border border-white/15 hover:border-white/25 transition-all duration-500">
+                            <div className="mb-6">
+                              <span className={`inline-block px-6 py-3 rounded-full text-sm font-bold tracking-wider uppercase bg-gradient-to-r ${chapter.gradient} text-white shadow-lg`}>
+                                {chapter.period}
+                              </span>
+                            </div>
+                            
+                            <h3 className="text-2xl md:text-3xl font-black text-white mb-4 leading-tight">
+                              {chapter.title}
+                            </h3>
+                            
+                            <h4 className={`text-lg font-bold bg-gradient-to-r ${chapter.gradient} bg-clip-text text-transparent mb-6`}>
+                              {chapter.subtitle}
+                            </h4>
+                            
+                            <p className="text-gray-300 leading-relaxed mb-8">
+                              {chapter.description}
+                            </p>
+                            
+                            <div className="space-y-3">
+                              {chapter.keyPoints.slice(0, 3).map((point, pointIndex) => (
+                                <div key={pointIndex} className="flex items-start space-x-3">
+                                  <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${chapter.gradient} mt-2 flex-shrink-0`}></div>
+                                  <p className="text-gray-400 leading-relaxed text-sm">{point}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </Card3D>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
-
-          {/* 5つの章セクション */}
-          <section className="relative min-h-screen bg-black/80 backdrop-blur-sm text-white">
-            <div className="relative z-10 py-16 px-4">
-              <div className="max-w-7xl mx-auto">
-                {/* モバイル用縦並び */}
-                <div className="block lg:hidden space-y-12">
-                  {LIFE_CHAPTERS.map((chapter, index) => (
-                    <div 
-                      key={index} 
-                      className="w-full"
-                      style={{
-                        transform: `rotate(${[-0.5, 0.3, -0.2, 0.4, -0.3][index]}deg)`
-                      }}
-                    >
-                      <Card3D index={index}>
-                        <div className="bg-gradient-to-br from-white/8 to-white/12 backdrop-blur-2xl rounded-3xl p-6 shadow-2xl border border-white/15 hover:border-white/25 transition-all duration-500">
-                          <div className="mb-4">
-                            <span className={`inline-block px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase bg-gradient-to-r ${chapter.gradient} text-white shadow-lg`}>
-                              {chapter.period}
-                            </span>
+            </section>
+                  
+            {/* 信条・価値観 - 透明白いセクション */}
+            <section className="w-full px-8 py-24 md:py-32 bg-white/85 backdrop-blur-sm text-gray-900">
+              <div className="max-w-screen-2xl mx-auto">
+                <div className="text-center mb-16 md:mb-20">
+                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 text-gray-900">
+                    信条・価値観
+                  </h3>
+                  <p className="text-xl md:text-2xl text-gray-600 font-light">
+                    全ての行動と決断の根幹
+                  </p>
+                </div>
+                  
+                <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-16">
+                  {CORE_VALUES.map((value, index) => (
+                    <div key={index} className="group">
+                      <div className="bg-white/70 backdrop-blur-xl rounded-2xl p-8 border border-gray-200 hover:shadow-xl hover:border-red-300 transition-all duration-500 shadow-lg">
+                        <div className="text-center space-y-4">
+                          <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center mx-auto transition-transform duration-300">
+                            <div className="text-white">
+                              {value.icon}
+                            </div>
                           </div>
-                          
-                          <h3 className="text-xl md:text-2xl font-black text-white mb-3 leading-tight">
-                            {chapter.title}
-                          </h3>
-                          
-                          <h4 className={`text-lg font-bold bg-gradient-to-r ${chapter.gradient} bg-clip-text text-transparent mb-4`}>
-                            {chapter.subtitle}
+                          <h4 className="text-xl font-bold text-gray-900 leading-tight">
+                            {value.title}
                           </h4>
-                          
-                          <p className="text-gray-300 leading-relaxed text-sm mb-6">
-                            {chapter.description}
+                          <p className="text-gray-600 leading-relaxed">
+                            {value.description}
                           </p>
-                          
-                          <div className="space-y-3">
-                            {chapter.keyPoints.slice(0, 2).map((point, pointIndex) => (
-                              <div key={pointIndex} className="flex items-start space-x-3">
-                                <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${chapter.gradient} mt-2 flex-shrink-0`}></div>
-                                <p className="text-gray-400 leading-relaxed text-xs">{point}</p>
-                              </div>
-                            ))}
-                          </div>
                         </div>
-                      </Card3D>
-                    </div>
-                  ))}
-                </div>
-
-                {/* デスクトップ用重なり配置 */}
-                <div className="hidden lg:block relative" style={{ minHeight: '1600px' }}>
-                  {LIFE_CHAPTERS.map((chapter, index) => (
-                    <div 
-                      key={index} 
-                      className="absolute w-full max-w-lg"
-                      style={{
-                        top: `${[0, 250, 480, 720, 960][index]}px`,
-                        left: `${[8, 52, 15, 58, 30][index]}%`,
-                        transform: `rotate(${[-0.8, 0.6, -0.4, 0.9, -0.5][index]}deg)`,
-                        zIndex: 5 - index
-                      }}
-                    >
-                      <Card3D index={index}>
-                        <div className="bg-gradient-to-br from-white/8 to-white/12 backdrop-blur-2xl rounded-3xl p-8 shadow-2xl border border-white/15 hover:border-white/25 transition-all duration-500">
-                          <div className="mb-6">
-                            <span className={`inline-block px-6 py-3 rounded-full text-sm font-bold tracking-wider uppercase bg-gradient-to-r ${chapter.gradient} text-white shadow-lg`}>
-                              {chapter.period}
-                            </span>
-                          </div>
-                          
-                          <h3 className="text-2xl md:text-3xl font-black text-white mb-4 leading-tight">
-                            {chapter.title}
-                          </h3>
-                          
-                          <h4 className={`text-lg font-bold bg-gradient-to-r ${chapter.gradient} bg-clip-text text-transparent mb-6`}>
-                            {chapter.subtitle}
-                          </h4>
-                          
-                          <p className="text-gray-300 leading-relaxed mb-8">
-                            {chapter.description}
-                          </p>
-                          
-                          <div className="space-y-3">
-                            {chapter.keyPoints.slice(0, 3).map((point, pointIndex) => (
-                              <div key={pointIndex} className="flex items-start space-x-3">
-                                <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${chapter.gradient} mt-2 flex-shrink-0`}></div>
-                                <p className="text-gray-400 leading-relaxed text-sm">{point}</p>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </Card3D>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* 信条・価値観 - 透明白いセクション */}
-          <section className="w-full px-8 py-24 md:py-32 bg-white/85 backdrop-blur-sm text-gray-900">
-            <div className="max-w-screen-2xl mx-auto">
-              <div className="text-center mb-16 md:mb-20">
-                <h3 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 text-gray-900">
-                  信条・価値観
-                </h3>
-                <p className="text-xl md:text-2xl text-gray-600 font-light">
-                  全ての行動と決断の根幹
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-16">
-                {CORE_VALUES.map((value, index) => (
-                  <div key={index} className="group">
-                    <div className="bg-white/70 backdrop-blur-xl rounded-2xl p-8 border border-gray-200 hover:shadow-xl hover:border-red-300 transition-all duration-500 shadow-lg">
-                      <div className="text-center space-y-4">
-                        <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center mx-auto transition-transform duration-300">
-                          <div className="text-white">
-                            {value.icon}
-                          </div>
-                        </div>
-                        <h4 className="text-xl font-bold text-gray-900 leading-tight">
-                          {value.title}
-                        </h4>
-                        <p className="text-gray-600 leading-relaxed">
-                          {value.description}
-                        </p>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="text-center">
-                <div className="max-w-4xl mx-auto bg-white/70 backdrop-blur-xl rounded-3xl border border-gray-200 p-12 md:p-16 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500 group">
-                  <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed text-gray-800 mb-8">
-                    「自分の信念に正直に、<br />
-                    胸を張って生きられる人生が
-                    <span className="font-black bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">
-                      {" "}何より大切
-                    </span>」
-                  </blockquote>
+                  ))}
                 </div>
-              </div>
-            </div>
-          </section>
-
-          {/* クロージング - 透明黒いセクション */}
-          <section className="w-full px-8 py-24 md:py-32 bg-gray-900/85 backdrop-blur-sm text-white">
-            <div className="max-w-screen-2xl mx-auto text-center">
-              <div className="max-w-5xl mx-auto">
-                <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-8">
-                  そして物語は続く
-                </h3>
-                <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 font-light leading-relaxed mb-12">
-                  地獄も味わった。ぶち上げられた。<br />
-                  <span className="text-red-500 font-semibold">そして今、僕がぶち上げる番だ。</span>
-                </p>
                 
-                <div className="bg-gradient-to-r from-red-500 to-red-600 text-white rounded-2xl p-8 md:p-12 inline-block shadow-xl">
-                  <p className="text-2xl md:text-3xl font-bold">
-                    「1億人の人生をぶち上げる」
-                  </p>
-                  <p className="text-lg md:text-xl mt-4 opacity-90">
-                    新しい章の始まり
-                  </p>
+                <div className="text-center">
+                  <div className="max-w-4xl mx-auto bg-white/70 backdrop-blur-xl rounded-3xl border border-gray-200 p-12 md:p-16 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500 group">
+                    <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed text-gray-800 mb-8">
+                      「自分の信念に正直に、<br />
+                      胸を張って生きられる人生が
+                      <span className="font-black bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">
+                        {" "}何より大切
+                      </span>」
+                    </blockquote>
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
-      </main>
-      
-      <Footer />
-    </div>
-  );
+            </section>
+                
+            {/* クロージング - 透明黒いセクション */}
+            <section className="w-full px-8 py-24 md:py-32 bg-gray-900/85 backdrop-blur-sm text-white">
+              <div className="max-w-screen-2xl mx-auto text-center">
+                <div className="max-w-5xl mx-auto">
+                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-8">
+                    そして物語は続く
+                  </h3>
+                  <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 font-light leading-relaxed mb-12">
+                    地獄も味わった。ぶち上げられた。<br />
+                    <span className="text-red-500 font-semibold">そして今、僕がぶち上げる番だ。</span>
+                  </p>
+                  
+                  <div className="bg-gradient-to-r from-red-500 to-red-600 text-white rounded-2xl p-8 md:p-12 inline-block shadow-xl">
+                    <p className="text-2xl md:text-3xl font-bold">
+                      「1億人の人生をぶち上げる」
+                    </p>
+                    <p className="text-lg md:text-xl mt-4 opacity-90">
+                      新しい章の始まり
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+        </main>
+        <Footer />
+      </div>
+    </>
+  );  
 }

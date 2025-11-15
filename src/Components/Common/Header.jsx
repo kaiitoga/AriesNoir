@@ -124,6 +124,17 @@ export const Header = () => {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-red-200 to-transparent group-hover:w-full transition-all duration-500" />
             </Link>
             <Link
+              to="/salesadvisor"
+              onClick={toggleMenu}
+              className={`block text-white text-3xl md:text-4xl lg:text-5xl font-bold hover:text-red-200 transition-all duration-300 tracking-wide hover:-translate-x-2 relative group ${
+                menuOpen && !isAnimating ? "animate-slideIn" : ""
+              }`}
+              style={{ animationDelay: "0.7s" }}
+            >
+              営業顧問
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-red-200 to-transparent group-hover:w-full transition-all duration-500" />
+            </Link>
+            <Link
               to="/business"
               onClick={toggleMenu}
               className={`block text-white text-3xl md:text-4xl lg:text-5xl font-bold hover:text-red-200 transition-all duration-300 tracking-wide hover:-translate-x-2 relative group ${

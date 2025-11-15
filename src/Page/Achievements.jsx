@@ -1,48 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Header } from '../Components/Common/Header'
 import { Footer } from '../Components/Common/Footer'
 import { LoadingScreen } from '../Components/Common/Animation/LoadingScreen'
 import { TrendingUp, Users, Award, Building, Zap, Target, Heart, Star, Briefcase, MessageSquare, Search, PuzzleIcon, HandHeart, GraduationCap, Clock, Globe } from 'lucide-react';
 
-// 配列をコンポーネント外に移動して見やすく
-const CORE_STATS = [
-  {
-    icon: <Building className="w-10 h-10" />,
-    number: "18",
-    unit: "社",
-    label: "顧問先企業",
-    description: "営業の設計士として支援",
-    color: "from-red-500 to-rose-600",
-    animation: "hover:rotate-6"
-  },
-  {
-    icon: <Users className="w-10 h-10" />,
-    number: "1億",
-    unit: "人",
-    label: "ぶち上げ目標",
-    description: "人生をぶち上げるミッション",
-    color: "from-blue-500 to-indigo-600",
-    animation: "hover:scale-110"
-  },
-  {
-    icon: <Clock className="w-10 h-10" />,
-    number: "24",
-    unit: "時間",
-    label: "全力コミット",
-    description: "クライアントのために",
-    color: "from-amber-500 to-orange-600",
-    animation: "hover:bounce"
-  },
-  {
-    icon: <Target className="w-10 h-10" />,
-    number: "∞",
-    unit: "",
-    label: "挑戦し続ける",
-    description: "成功は到達点ではない",
-    color: "from-emerald-500 to-teal-600",
-    animation: "hover:pulse"
-  }
-];
 
 const CLIENT_SUCCESS_STORIES = [
   {
@@ -172,6 +133,15 @@ const GROWTH_MILESTONES = [
 export const Achievements = () => {
   const [isLoading, setIsLoading] = useState(true)
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <>
       {isLoading && (
@@ -188,7 +158,7 @@ export const Achievements = () => {
                 
                 <h1 className="font-lora text-6xl md:text-7xl lg:text-9xl font-black leading-tight mb-8">
                   <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">
-                    実績目標
+                    実績
                   </span>
                 </h1>
                 
@@ -199,49 +169,7 @@ export const Achievements = () => {
               </div>
             </section>
             
-            <section className="w-full px-8 py-24 md:py-32 bg-gradient-to-br from-white via-gray-50 to-white">
-              <div className="max-w-screen-2xl mx-auto">
-                <div className="text-center mb-16 md:mb-20">
-                  <h2 className="font-lora text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6">
-                    数字で見る実績
-                  </h2>
-                </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-                  {CORE_STATS.map((stat, index) => (
-                    <div key={index} className="group">
-                      <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-200/50 hover:shadow-2xl transition-all duration-700 hover:-translate-y-3 relative overflow-hidden">
-                        <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-                        
-                        <div className="relative z-10 text-center">
-                          <div className={`w-20 h-20 bg-gradient-to-br ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 ${stat.animation} transition-all duration-500 shadow-lg`}>
-                            <div className="text-white">
-                              {stat.icon}
-                            </div>
-                          </div>
-                          
-                          <div className="mb-4">
-                            <span className="text-5xl md:text-6xl font-black text-gray-900 block leading-none">
-                              {stat.number}
-                            </span>
-                            <span className={`text-2xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
-                              {stat.unit}
-                            </span>
-                          </div>
-                          
-                          <h4 className="text-xl font-bold text-gray-900 mb-2">
-                            {stat.label}
-                          </h4>
-                          <p className="text-gray-600 font-light text-sm">
-                            {stat.description}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
 
             {/* 支援プロセス */}
             <section className="w-full px-8 py-24 md:py-32 bg-gradient-to-br from-gray-50 to-white">

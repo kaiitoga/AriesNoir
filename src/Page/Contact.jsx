@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Header } from "../Components/Common/Header";
 import { Footer } from "../Components/Common/Footer";
 import { LoadingScreen } from "../Components/Common/Animation/LoadingScreen";
 
 export const Contact = () => {
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    window.scrollTo(0, 0);
+  };
 
   return (
     <>

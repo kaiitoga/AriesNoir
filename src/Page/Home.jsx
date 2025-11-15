@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Header } from '../Components/Common/Header'
 import { LoadingScreen } from '../Components/Common/Animation/LoadingScreen'
 import { MV } from '../Components/Home/MV'
@@ -12,6 +12,15 @@ import { Footer } from '../Components/Common/Footer'
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    window.scrollTo(0, 0);
+  };
 
   return (
     <>
