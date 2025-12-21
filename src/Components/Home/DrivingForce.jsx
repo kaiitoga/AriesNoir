@@ -115,11 +115,11 @@ export const DrivingForce = () => {
             <div ref={drive3Ref}>
               <div className="bg-black w-fit py-1 px-2 mb-2">
                 <h5 className="font-bold text-white text-base xl:text-lg 2xl:text-xl">
-                  <span className="text-red-400">03.</span> 1億人の人生をぶち上げる
+                  <span className="text-red-400">03.</span> <span className="whitespace-nowrap">1億人の人生をぶち上げる</span>
                 </h5>
               </div>
               <p className="font-semibold xl:text-lg 2xl:text-xl">
-                学び・出会い・環境を総動員して「1億人の人生をぶち上げる」をミッションに活動中。<br />
+                学び・出会い・環境を総動員して<span className="whitespace-nowrap">「1億人の人生をぶち上げる」</span>をミッションに活動中。<br />
                 <span className="text-red-600 border-b-2 border-red-600">かかわってきた人達に恩返しをする</span>
               </p>
             </div>

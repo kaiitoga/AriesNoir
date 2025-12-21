@@ -53,7 +53,7 @@ export const FromHellToHeaven = () => {
         </div>
         <div ref={contentBoxRef} className="order-2 lg:order-2 bg-white px-4 py-8 max-w-2xl xl:max-w-4xl relative z-10 flex-shrink-0">
           <h2 ref={titleRef} className="font-bold text-2xl xl:text-3xl 2xl:text-4xl p-1 text-gray-900">
-            地獄から這い上がった
+            <span className="whitespace-nowrap">地獄から這い上がった</span>
             <span className="font-extrabold text-4xl xl:text-5xl 2xl:text-6xl text-gray-900">ドラマ</span>
           </h2>
 

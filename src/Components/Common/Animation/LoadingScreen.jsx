@@ -34,13 +34,11 @@ export const LoadingScreen = ({ onComplete }) => {
       .to(textContainer, { autoAlpha: 0, duration: 0.5 }, "fadeOut")
       .to(topBg, { yPercent: -100, ease: "power3.inOut", duration: 0.7 }, "fadeOut")
       .to(bottomBg, { yPercent: 100, ease: "power3.inOut", duration: 0.7 }, "fadeOut")
-      .to(loading, { 
-        autoAlpha: 0, 
-        duration: 0, 
-        onComplete: () => {
-          loading.style.display = "none"
-          if (onComplete) onComplete()
-        }
+      .set(loading, {
+        display: "none"
+      })
+      .call(() => {
+        if (onComplete) onComplete()
       })
 
     // クリーンアップ

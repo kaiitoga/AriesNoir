@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { Header } from '../Components/Common/Header'
 import { Footer } from '../Components/Common/Footer'
-import { LoadingScreen } from '../Components/Common/Animation/LoadingScreen'
 import { useAnimation } from '../hooks/useAnimation'
 import { Star, GraduationCap, Briefcase, Flame, Crown, Heart, Users, Sparkles } from 'lucide-react';
 
@@ -125,8 +124,7 @@ const Card3D = ({ children, index }) => {
   );
 };
 
-export const Life_Chapters = () => {
-  const [isLoading, setIsLoading] = useState(true)
+export const Life_Chapters = ({ isLoading }) => {
 
   // sec2: 5つの章セクション refs
   const chaptersContainerRef = useRef(null)
@@ -225,16 +223,12 @@ export const Life_Chapters = () => {
     triggerSettings: { start: "top 85%" }
   })
 
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-    window.scrollTo(0, 0);
-    };
+  if (isLoading) {
+    return null;
+  }
+
   return (
-    <>
-      {isLoading && (
-        <LoadingScreen onComplete={() => setIsLoading(false)} />
-      )}
-      <div className="w-full mx-auto overflow-x-hidden relative">
+    <div className="w-full mx-auto overflow-x-hidden relative">
         <Header />
         {/* 固定背景円 */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
@@ -466,6 +460,5 @@ export const Life_Chapters = () => {
         </main>
         <Footer />
       </div>
-    </>
   );  
 }

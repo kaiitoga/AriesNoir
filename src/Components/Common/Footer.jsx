@@ -1,4 +1,5 @@
 import React from 'react'
+import { CustomLink } from './CustomLink'
 
 export const Footer = () => {
   return (
@@ -20,12 +21,12 @@ export const Footer = () => {
               <div className="w-20 h-1 bg-gradient-to-r from-red-500 to-red-600 rounded-full"></div>
             </div>
             <p className="text-lg text-gray-300 leading-relaxed max-w-md">
-              地獄を味わい、ぶち上げられた男が今度は
-              <span className="text-white font-semibold">あなたをぶち上げる</span>
+              <span className="whitespace-nowrap">地獄を味わい、ぶち上げられた男</span>が今度は
+              <span className="text-white font-semibold whitespace-nowrap">あなたをぶち上げる</span>
             </p>
             <div className="bg-gradient-to-r from-red-500/10 to-red-600/10 border border-red-500/20 rounded-2xl p-6">
-              <p className="text-xl font-bold text-red-400 mb-2">「1億人の人生をぶち上げる」</p>
-              <p className="text-gray-400">営業の設計士として、あなたの挑戦を支援します</p>
+              <p className="text-xl font-bold text-red-400 mb-2"><span className="whitespace-nowrap">「1億人の人生をぶち上げる」</span></p>
+              <p className="text-gray-400"><span className="whitespace-nowrap">営業の設計士として、</span>あなたの挑戦を支援します</p>
             </div>
           </div>
 
@@ -42,16 +43,16 @@ export const Footer = () => {
                 { name: '会社について', href: '/business' },
                 { name: 'お問い合わせ', href: '/contact' }
               ].map((link, index) => (
-                <a 
+                <CustomLink
                   key={index}
-                  href={link.href} 
+                  to={link.href}
                   className="block text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-300 group"
                 >
                   <span className="flex items-center space-x-2">
                     <div className="w-1 h-1 bg-red-500 rounded-full group-hover:w-2 transition-all duration-300"></div>
                     <span>{link.name}</span>
                   </span>
-                </a>
+                </CustomLink>
               ))}
             </div>
           </div>
@@ -66,12 +67,12 @@ export const Footer = () => {
                 営業でお困りですか？<br />
                 まずはお気軽にご相談ください
               </p>
-              <a 
-                href="/contact" 
+              <CustomLink
+                to="/contact"
                 className="inline-block bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 今すぐ相談
-              </a>
+              </CustomLink>
               <div className="text-sm text-gray-500">
                 <p>代表: 若菜龍之介</p>
                 <p>営業顧問・コンサルティング</p>

@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 import { Header } from '../Components/Common/Header'
 import { Footer } from '../Components/Common/Footer'
-import { LoadingScreen } from '../Components/Common/Animation/LoadingScreen'
 import { TrendingUp, Users, Award, Building, Zap, Target, Heart, Star, Briefcase, MessageSquare, Search, PuzzleIcon, HandHeart, GraduationCap, Clock, Globe } from 'lucide-react';
 import { useAnimation } from '../hooks/useAnimation';
 import {
@@ -140,8 +139,7 @@ const GROWTH_MILESTONES = [
   }
 ];
 
-export const Achievements = () => {
-  const [isLoading, setIsLoading] = useState(true)
+export const Achievements = ({ isLoading }) => {
 
   // sec1: 実績紹介（ダーク背景）- アニメーション不要のためref削除
 
@@ -170,10 +168,6 @@ export const Achievements = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-    window.scrollTo(0, 0);
-  };
 
   // sec1: 実績紹介のアニメーション - 削除（MVにはアニメーション不要）
 
@@ -279,12 +273,12 @@ export const Achievements = () => {
     scrollTriggerOptions: { start: "top 85%" }
   });
 
+  if (isLoading) {
+    return null;
+  }
+
   return (
-    <>
-      {isLoading && (
-        <LoadingScreen onComplete={() => setIsLoading(false)} />
-      )}
-      <div className="w-full mx-auto overflow-x-hidden">
+    <div className="w-full mx-auto overflow-x-hidden">
         <Header />
         <main className="pt-20">
           <div className="w-full">
@@ -592,6 +586,5 @@ export const Achievements = () => {
         </main>
         <Footer />
       </div>
-    </>
   )
 }

@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { Header } from "../Components/Common/Header";
 import { Footer } from "../Components/Common/Footer";
-import { LoadingScreen } from "../Components/Common/Animation/LoadingScreen";
 import { List, Check, Handshake } from "lucide-react";
 import { useAnimation } from "../hooks/useAnimation";
 import {
@@ -13,8 +12,7 @@ import {
   bounceInUp,
 } from "../utils/animations";
 
-export const Business = () => {
-  const [isLoading, setIsLoading] = useState(true);
+export const Business = ({ isLoading }) => {
 
   // sec1: ABOUT - 会社案内
   const aboutBusinessTitleRef = useRef(null);
@@ -48,10 +46,6 @@ export const Business = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-    window.scrollTo(0, 0);
-  };
 
   // sec1: ABOUTのアニメーション
   useAnimation({
@@ -206,10 +200,12 @@ export const Business = () => {
     }
   });
 
+  if (isLoading) {
+    return null;
+  }
+
   return (
-    <>
-      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
-      <div className="w-full mx-auto overflow-x-hidden">
+    <div className="w-full mx-auto overflow-x-hidden">
         <Header />
         <main className="pt-20">
           {/* MV - 白ベースのモダンデザイン */}
@@ -524,7 +520,6 @@ export const Business = () => {
 
         <Footer />
       </div>
-    </>
   );
 };
 

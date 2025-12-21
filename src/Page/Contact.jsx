@@ -1,15 +1,14 @@
-import React, { useState } from "react";
 import { Header } from "../Components/Common/Header";
 import { Footer } from "../Components/Common/Footer";
-import { LoadingScreen } from "../Components/Common/Animation/LoadingScreen";
 
-export const Contact = () => {
-  const [isLoading, setIsLoading] = useState(true);
+export const Contact = ({ isLoading }) => {
+
+  if (isLoading) {
+    return null;
+  }
 
   return (
-    <>
-      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
-      <div className="w-full mx-auto overflow-x-hidden">
+    <div className="w-full mx-auto overflow-x-hidden">
         <Header />
         <main className="pt-20">
           <section className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 py-20">
@@ -136,7 +135,6 @@ export const Contact = () => {
         </main>
         <Footer />
       </div>
-    </>
   );
 };
 

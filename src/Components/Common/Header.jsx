@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { CustomLink } from "./CustomLink";
 import "./Header.css";
 
 export const Header = () => {
@@ -22,9 +22,9 @@ export const Header = () => {
     <>
       <div className="w-full max-w-screen-2xl fixed top-0 z-50 bg-red-600">
         <div className="w-full mx-auto flex justify-between items-center p-4">
-          <Link to="/" className="text-2xl font-bold text-white tracking-wide">
+          <CustomLink to="/" className="text-2xl font-bold text-white tracking-wide">
             アリエスノワール
-          </Link>
+          </CustomLink>
           <button
             onClick={toggleMenu}
             className="relative w-14 h-14 bg-black hover:bg-gray-800 flex items-center justify-center z-[60] transition-colors duration-200"
@@ -93,7 +93,7 @@ export const Header = () => {
                 : "opacity-0 translate-x-10"
             }`}
           >
-            <Link
+            <CustomLink
               to="/"
               onClick={toggleMenu}
               className={`block text-white text-3xl md:text-4xl lg:text-5xl font-bold hover:text-red-200 transition-all duration-300 tracking-wide hover:-translate-x-2 relative group ${
@@ -103,8 +103,8 @@ export const Header = () => {
             >
               ホーム
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-red-200 to-transparent group-hover:w-full transition-all duration-500" />
-            </Link>
-            <Link
+            </CustomLink>
+            <CustomLink
               to="/life_chapters"
               onClick={toggleMenu}
               className={`block text-white text-3xl md:text-4xl lg:text-5xl font-bold hover:text-red-200 transition-all duration-300 tracking-wide hover:-translate-x-2 relative group ${
@@ -114,8 +114,8 @@ export const Header = () => {
             >
               これまで
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-red-200 to-transparent group-hover:w-full transition-all duration-500" />
-            </Link>
-            <Link
+            </CustomLink>
+            <CustomLink
               to="/achievements"
               onClick={toggleMenu}
               className={`block text-white text-3xl md:text-4xl lg:text-5xl font-bold hover:text-red-200 transition-all duration-300 tracking-wide hover:-translate-x-2 relative group ${
@@ -125,8 +125,8 @@ export const Header = () => {
             >
               実績
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-red-200 to-transparent group-hover:w-full transition-all duration-500" />
-            </Link>
-            <Link
+            </CustomLink>
+            <CustomLink
               to="/salesadvisor"
               onClick={toggleMenu}
               className={`block text-white text-3xl md:text-4xl lg:text-5xl font-bold hover:text-red-200 transition-all duration-300 tracking-wide hover:-translate-x-2 relative group ${
@@ -136,8 +136,8 @@ export const Header = () => {
             >
               営業顧問
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-red-200 to-transparent group-hover:w-full transition-all duration-500" />
-            </Link>
-            <Link
+            </CustomLink>
+            <CustomLink
               to="/business"
               onClick={toggleMenu}
               className={`block text-white text-3xl md:text-4xl lg:text-5xl font-bold hover:text-red-200 transition-all duration-300 tracking-wide hover:-translate-x-2 relative group ${
@@ -147,8 +147,8 @@ export const Header = () => {
             >
               会社について
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-red-200 to-transparent group-hover:w-full transition-all duration-500" />
-            </Link>
-            <Link
+            </CustomLink>
+            <CustomLink
               to="/contact"
               onClick={toggleMenu}
               className={`block text-white text-3xl md:text-4xl lg:text-5xl font-bold hover:text-red-200 transition-all duration-300 tracking-wide hover:-translate-x-2 relative group ${
@@ -158,7 +158,7 @@ export const Header = () => {
             >
               お問い合わせ
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-red-200 to-transparent group-hover:w-full transition-all duration-500" />
-            </Link>
+            </CustomLink>
           </nav>
 
           <div

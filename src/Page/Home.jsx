@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react'
+import React, { useLayoutEffect } from 'react'
 import { Header } from '../Components/Common/Header'
-import { LoadingScreen } from '../Components/Common/Animation/LoadingScreen'
 import { MV } from '../Components/Home/MV'
 import { Before } from '../Components/Home/Before'
 import { Challenge } from '../Components/Home/Challenge'
@@ -10,36 +9,28 @@ import { FromHellToHeaven } from '../Components/Home/FromHellToHeaven'
 import { Footer } from '../Components/Common/Footer'
 
 
-export const Home = () => {
-  const [isLoading, setIsLoading] = useState(true)
-
+export const Home = ({ isLoading }) => {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-    window.scrollTo(0, 0);
-  };
+  if (isLoading) {
+    return null;
+  }
 
   return (
-    <>
-      {isLoading && (
-        <LoadingScreen onComplete={handleLoadingComplete} />
-      )}
-      <div className="w-full mx-auto overflow-x-hidden">
-        <Header />
-        <main className="pt-20">
-          <MV />
-          <Before />
-          <Challenge />
-          <FromHellToHeaven />
-          <DrivingForce />
-          <LifeChanging />
-        </main>
-        <Footer />
-      </div>
-    </>
+    <div className="w-full mx-auto overflow-x-hidden">
+      <Header />
+      <main className="pt-20">
+        <MV />
+        <Before />
+        <Challenge />
+        <FromHellToHeaven />
+        <DrivingForce />
+        <LifeChanging />
+      </main>
+      <Footer />
+    </div>
   )
 }
 

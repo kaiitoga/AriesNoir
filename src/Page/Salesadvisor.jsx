@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { Header } from "../Components/Common/Header";
 import { Footer } from "../Components/Common/Footer";
-import { LoadingScreen } from "../Components/Common/Animation/LoadingScreen";
 import { useAnimation } from "../hooks/useAnimation";
 import { TrendingUp, Users, Target, Award, Zap, ArrowRight, Phone, Mail, Calendar, DollarSign, LineChart, Rocket, MessageSquare, CheckCircle } from "lucide-react";
 
-export const Salesadvisor = () => {
-  const [isLoading, setIsLoading] = useState(true);
+export const Salesadvisor = ({ isLoading }) => {
 
   // sec2: 営業顧問とは refs
   const aboutTitleRef = useRef(null);
@@ -160,15 +158,13 @@ export const Salesadvisor = () => {
     triggerSettings: { start: "top 90%" }
   });
 
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-    window.scrollTo(0, 0);
-  };
+
+  if (isLoading) {
+    return null;
+  }
 
   return (
-    <>
-      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
-      <div className="w-full mx-auto overflow-x-hidden bg-black">
+    <div className="w-full mx-auto overflow-x-hidden bg-black">
         <Header />
         <main className="pt-20">
           
@@ -642,6 +638,5 @@ export const Salesadvisor = () => {
         </main>
         <Footer />
       </div>
-    </>
   );
 };
