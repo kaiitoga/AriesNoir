@@ -2,7 +2,7 @@ import React from 'react'
 
 export const MV = () => {
   return (
-    <section 
+    <section
       className="relative w-full h-screen flex flex-col justify-center bg-center bg-cover bg-no-repeat pt-16 md:pt-20 lg:pt-32"
       style={{ backgroundImage: "url('../img/human/photo4.jpg')" }}
     >

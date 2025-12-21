@@ -1,9 +1,55 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { ArrowRight } from 'lucide-react'
+import { useAnimation } from '../../hooks/useAnimation'
 
 export const LifeChanging = () => {
- return (
-   <div className="relative min-h-screen overflow-hidden">
+  const backgroundRef = useRef(null)
+  const titleRef = useRef(null)
+  const subtitleRef = useRef(null)
+  const descriptionRef = useRef(null)
+  const ctaButtonRef = useRef(null)
+
+  useAnimation({
+    triggerElements: [
+      {
+        element: backgroundRef,
+        animationType: 'scaleUp',
+        animationOptions: { duration: 2.2, ease: 'power2.out' }
+      },
+      {
+        element: titleRef,
+        animationType: 'fadeIn',
+        animationOptions: { duration: 1.6, ease: 'power3.out' },
+        position: "-=1.6"
+      },
+      {
+        element: subtitleRef,
+        animationType: 'slideFromLeft',
+        animationOptions: { distance: 70, duration: 1.2, ease: 'power3.out' },
+        position: "-=0.6"
+      },
+      {
+        element: descriptionRef,
+        animationType: 'fadeInUp',
+        animationOptions: { distance: 40, duration: 1.4, ease: 'power4.out' },
+        position: "-=0.4"
+      },
+      {
+        element: ctaButtonRef,
+        animationType: 'scaleUp',
+        animationOptions: { duration: 1.0, ease: 'power3.out' },
+        position: "-=0.3"
+      }
+    ],
+    triggerSettings: {
+      start: "top 85%",
+      end: "bottom 20%",
+      toggleActions: "play none none none"
+    }
+  })
+
+  return (
+    <div ref={backgroundRef} className="relative min-h-screen overflow-hidden">
      {/* 背景画像 */}
      <div className="absolute inset-0">
        <img 
@@ -35,7 +81,7 @@ export const LifeChanging = () => {
          <div className="flex justify-end">
            <div className="max-w-4xl text-right">
              <div className="space-y-8">
-               <h2 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-none">
+               <h2 ref={titleRef} className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-none">
                  人生を
                  <br />
                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-400 to-purple-400 animate-pulse">
@@ -45,7 +91,7 @@ export const LifeChanging = () => {
                  仕事を
                </h2>
 
-               <div className="space-y-6 max-w-4xl ml-auto">
+               <div ref={subtitleRef} className="space-y-6 max-w-4xl ml-auto">
                  <p className="text-2xl md:text-3xl lg:text-4xl text-white font-bold leading-tight">
                    お客様の人生が変わる瞬間に立ち会う。
                    <br />
@@ -61,7 +107,7 @@ export const LifeChanging = () => {
                  </p>
                </div>
 
-               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12">
+               <div ref={descriptionRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12">
                  <div className="text-center md:text-right">
                    <div className="text-5xl md:text-6xl font-black text-red-400 mb-2 counter-animation">
                      1000+
@@ -82,7 +128,7 @@ export const LifeChanging = () => {
                  </div>
                </div>
 
-               <div className="pt-16">
+               <div ref={ctaButtonRef} className="pt-16">
                  <div className="space-y-6">
                    <p className="text-xl md:text-2xl text-white font-bold">
                      あなたも、

@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Header } from '../Components/Common/Header'
 import { Footer } from '../Components/Common/Footer'
 import { LoadingScreen } from '../Components/Common/Animation/LoadingScreen'
+import { useAnimation } from '../hooks/useAnimation'
 import { Star, GraduationCap, Briefcase, Flame, Crown, Heart, Users, Sparkles } from 'lucide-react';
 
 const LIFE_CHAPTERS = [
@@ -127,9 +128,102 @@ const Card3D = ({ children, index }) => {
 export const Life_Chapters = () => {
   const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
+  // sec2: 5つの章セクション refs
+  const chaptersContainerRef = useRef(null)
+  const chapterRefs = useRef([])
+
+  // sec3: 信条・価値観 refs
+  const valuesTitleRef = useRef(null)
+  const valuesSubtitleRef = useRef(null)
+  const valuesCardsRef = useRef(null)
+  const valuesQuoteRef = useRef(null)
+
+  // sec4: クロージング refs
+  const closingTitleRef = useRef(null)
+  const closingDescRef = useRef(null)
+  const closingCtaRef = useRef(null)
+
+  useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // sec2: 5つの章アニメーション
+  useAnimation({
+    triggerElements: [
+      {
+        element: chaptersContainerRef,
+        animationType: 'fadeIn',
+        animationOptions: { duration: 0.3 },
+        children: {
+          selector: '.chapter-card',
+          animationType: 'slideFromRight',
+          staggerDelay: 0.08,
+          animationOptions: { distance: 40, duration: 0.5, ease: 'power3.out' }
+        }
+      }
+    ],
+    triggerSettings: { start: "top 85%" }
+  })
+
+  // sec3: 信条・価値観アニメーション
+  useAnimation({
+    triggerElements: [
+      {
+        element: valuesTitleRef,
+        animationType: 'scaleUp',
+        animationOptions: { duration: 0.5, ease: 'power3.out' }
+      },
+      {
+        element: valuesSubtitleRef,
+        animationType: 'fadeInUp',
+        animationOptions: { distance: 20, duration: 0.4, ease: 'power3.out' },
+        position: "-=0.3"
+      },
+      {
+        element: valuesCardsRef,
+        animationType: 'fadeIn',
+        animationOptions: { duration: 0.3 },
+        position: "-=0.2",
+        children: {
+          selector: '.value-card',
+          animationType: 'bounceInUp',
+          staggerDelay: 0.1,
+          animationOptions: { distance: 30, duration: 0.5, ease: 'back.out(1.4)' }
+        }
+      },
+      {
+        element: valuesQuoteRef,
+        animationType: 'scaleUp',
+        animationOptions: { duration: 0.6, ease: 'power3.out' },
+        position: "-=0.2"
+      }
+    ],
+    triggerSettings: { start: "top 85%" }
+  })
+
+  // sec4: クロージングアニメーション
+  useAnimation({
+    triggerElements: [
+      {
+        element: closingTitleRef,
+        animationType: 'scaleUp',
+        animationOptions: { duration: 0.5, ease: 'power3.out' }
+      },
+      {
+        element: closingDescRef,
+        animationType: 'fadeInUp',
+        animationOptions: { distance: 25, duration: 0.4, ease: 'power3.out' },
+        position: "-=0.3"
+      },
+      {
+        element: closingCtaRef,
+        animationType: 'bounceInUp',
+        animationOptions: { distance: 35, duration: 0.5, ease: 'back.out(1.4)' },
+        position: "-=0.2"
+      }
+    ],
+    triggerSettings: { start: "top 85%" }
+  })
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
@@ -177,7 +271,7 @@ export const Life_Chapters = () => {
                       <div className="w-16 h-px bg-gradient-to-l from-transparent via-red-500 to-transparent"></div>
                     </div>
                   </div>
-                  
+
                   <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black leading-tight mb-8 text-white">
                     <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent block mb-4">
                       若菜龍之介
@@ -186,13 +280,13 @@ export const Life_Chapters = () => {
                       人生の軌跡
                     </span>
                   </h1>
-                  
+
                   <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 font-light leading-relaxed mb-8">
                     1996年千葉生まれ、<br />
                     地獄を味わい、ぶち上げられた男の<br />
                     <span className="text-white font-semibold">28年間の物語</span>
                   </p>
-                  
+
                   <div className="flex items-center space-x-3">
                     <span className="text-gray-400 text-lg">千葉県千葉市花見川区 → 全国</span>
                   </div>
@@ -202,14 +296,14 @@ export const Life_Chapters = () => {
               
             {/* 5つの章セクション */}
             <section className="relative min-h-screen bg-black/80 backdrop-blur-sm text-white">
-              <div className="relative z-10 py-16 px-4">
+              <div ref={chaptersContainerRef} className="relative z-10 py-16 px-4">
                 <div className="max-w-7xl mx-auto">
                   {/* モバイル用縦並び */}
                   <div className="block lg:hidden space-y-12">
                     {LIFE_CHAPTERS.map((chapter, index) => (
-                      <div 
-                        key={index} 
-                        className="w-full"
+                      <div
+                        key={index}
+                        className="w-full chapter-card"
                         style={{
                           transform: `rotate(${[-0.5, 0.3, -0.2, 0.4, -0.3][index]}deg)`
                         }}
@@ -251,9 +345,9 @@ export const Life_Chapters = () => {
                   {/* デスクトップ用重なり配置 */}
                   <div className="hidden lg:block relative" style={{ minHeight: '1600px' }}>
                     {LIFE_CHAPTERS.map((chapter, index) => (
-                      <div 
-                        key={index} 
-                        className="absolute w-full max-w-lg"
+                      <div
+                        key={index}
+                        className="absolute w-full max-w-lg chapter-card"
                         style={{
                           top: `${[0, 250, 480, 720, 960][index]}px`,
                           left: `${[8, 52, 15, 58, 30][index]}%`,
@@ -302,17 +396,17 @@ export const Life_Chapters = () => {
             <section className="w-full px-8 py-24 md:py-32 bg-white/85 backdrop-blur-sm text-gray-900">
               <div className="max-w-screen-2xl mx-auto">
                 <div className="text-center mb-16 md:mb-20">
-                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 text-gray-900">
+                  <h3 ref={valuesTitleRef} className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 text-gray-900">
                     信条・価値観
                   </h3>
-                  <p className="text-xl md:text-2xl text-gray-600 font-light">
+                  <p ref={valuesSubtitleRef} className="text-xl md:text-2xl text-gray-600 font-light">
                     全ての行動と決断の根幹
                   </p>
                 </div>
-                  
-                <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-16">
+
+                <div ref={valuesCardsRef} className="grid md:grid-cols-3 gap-8 md:gap-12 mb-16">
                   {CORE_VALUES.map((value, index) => (
-                    <div key={index} className="group">
+                    <div key={index} className="group value-card">
                       <div className="bg-white/70 backdrop-blur-xl rounded-2xl p-8 border border-gray-200 hover:shadow-xl hover:border-red-300 transition-all duration-500 shadow-lg">
                         <div className="text-center space-y-4">
                           <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center mx-auto transition-transform duration-300">
@@ -333,7 +427,7 @@ export const Life_Chapters = () => {
                 </div>
                 
                 <div className="text-center">
-                  <div className="max-w-4xl mx-auto bg-white/70 backdrop-blur-xl rounded-3xl border border-gray-200 p-12 md:p-16 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500 group">
+                  <div ref={valuesQuoteRef} className="max-w-4xl mx-auto bg-white/70 backdrop-blur-xl rounded-3xl border border-gray-200 p-12 md:p-16 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500 group">
                     <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed text-gray-800 mb-8">
                       「自分の信念に正直に、<br />
                       胸を張って生きられる人生が
@@ -350,15 +444,15 @@ export const Life_Chapters = () => {
             <section className="w-full px-8 py-24 md:py-32 bg-gray-900/85 backdrop-blur-sm text-white">
               <div className="max-w-screen-2xl mx-auto text-center">
                 <div className="max-w-5xl mx-auto">
-                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-8">
+                  <h3 ref={closingTitleRef} className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-8">
                     そして物語は続く
                   </h3>
-                  <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 font-light leading-relaxed mb-12">
+                  <p ref={closingDescRef} className="text-xl md:text-2xl lg:text-3xl text-gray-300 font-light leading-relaxed mb-12">
                     地獄も味わった。ぶち上げられた。<br />
                     <span className="text-red-500 font-semibold">そして今、僕がぶち上げる番だ。</span>
                   </p>
-                  
-                  <div className="bg-gradient-to-r from-red-500 to-red-600 text-white rounded-2xl p-8 md:p-12 inline-block shadow-xl">
+
+                  <div ref={closingCtaRef} className="bg-gradient-to-r from-red-500 to-red-600 text-white rounded-2xl p-8 md:p-12 inline-block shadow-xl">
                     <p className="text-2xl md:text-3xl font-bold">
                       「1億人の人生をぶち上げる」
                     </p>

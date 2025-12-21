@@ -27,22 +27,25 @@ export const Header = () => {
           </Link>
           <button
             onClick={toggleMenu}
-            className="relative w-14 h-14 bg-black hover:bg-gray-800 flex items-center justify-center z-[60] transition-all duration-300"
+            className="relative w-14 h-14 bg-black hover:bg-gray-800 flex items-center justify-center z-[60] transition-colors duration-200"
           >
             <span
-              className={`absolute block h-[2px] w-[28px] bg-white transition-all duration-300 ${
+              className={`absolute block h-[2px] w-[28px] bg-white ${
                 menuOpen ? "rotate-45 translate-y-0" : "-translate-y-2"
               }`}
+              style={{ transition: "transform 0.2s ease-out" }}
             />
             <span
-              className={`absolute block h-[2px] w-[28px] bg-white transition-all duration-300 ${
+              className={`absolute block h-[2px] w-[28px] bg-white ${
                 menuOpen ? "opacity-0" : "opacity-100"
               }`}
+              style={{ transition: "opacity 0.15s linear" }}
             />
             <span
-              className={`absolute block h-[2px] w-[28px] bg-white transition-all duration-300 ${
+              className={`absolute block h-[2px] w-[28px] bg-white ${
                 menuOpen ? "-rotate-45 translate-y-0" : "translate-y-2"
               }`}
+              style={{ transition: "transform 0.2s ease-out" }}
             />
           </button>
         </div>
@@ -96,7 +99,7 @@ export const Header = () => {
               className={`block text-white text-3xl md:text-4xl lg:text-5xl font-bold hover:text-red-200 transition-all duration-300 tracking-wide hover:-translate-x-2 relative group ${
                 menuOpen && !isAnimating ? "animate-slideIn" : ""
               }`}
-              style={{ animationDelay: "0.4s" }}
+              style={{ animationDelay: "0.3s" }}
             >
               ホーム
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-red-200 to-transparent group-hover:w-full transition-all duration-500" />
@@ -107,7 +110,7 @@ export const Header = () => {
               className={`block text-white text-3xl md:text-4xl lg:text-5xl font-bold hover:text-red-200 transition-all duration-300 tracking-wide hover:-translate-x-2 relative group ${
                 menuOpen && !isAnimating ? "animate-slideIn" : ""
               }`}
-              style={{ animationDelay: "0.4s" }}
+              style={{ animationDelay: "0.35s" }}
             >
               これまで
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-red-200 to-transparent group-hover:w-full transition-all duration-500" />
@@ -118,7 +121,7 @@ export const Header = () => {
               className={`block text-white text-3xl md:text-4xl lg:text-5xl font-bold hover:text-red-200 transition-all duration-300 tracking-wide hover:-translate-x-2 relative group ${
                 menuOpen && !isAnimating ? "animate-slideIn" : ""
               }`}
-              style={{ animationDelay: "0.5s" }}
+              style={{ animationDelay: "0.4s" }}
             >
               実績
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-red-200 to-transparent group-hover:w-full transition-all duration-500" />
@@ -129,7 +132,7 @@ export const Header = () => {
               className={`block text-white text-3xl md:text-4xl lg:text-5xl font-bold hover:text-red-200 transition-all duration-300 tracking-wide hover:-translate-x-2 relative group ${
                 menuOpen && !isAnimating ? "animate-slideIn" : ""
               }`}
-              style={{ animationDelay: "0.7s" }}
+              style={{ animationDelay: "0.45s" }}
             >
               営業顧問
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-red-200 to-transparent group-hover:w-full transition-all duration-500" />
@@ -151,7 +154,7 @@ export const Header = () => {
               className={`block text-white text-3xl md:text-4xl lg:text-5xl font-bold hover:text-red-200 transition-all duration-300 tracking-wide hover:-translate-x-2 relative group ${
                 menuOpen && !isAnimating ? "animate-slideIn" : ""
               }`}
-              style={{ animationDelay: "0.7s" }}
+              style={{ animationDelay: "0.55s" }}
             >
               お問い合わせ
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-red-200 to-transparent group-hover:w-full transition-all duration-500" />

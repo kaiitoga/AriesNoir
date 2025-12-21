@@ -1,8 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { Header } from '../Components/Common/Header'
 import { Footer } from '../Components/Common/Footer'
 import { LoadingScreen } from '../Components/Common/Animation/LoadingScreen'
 import { TrendingUp, Users, Award, Building, Zap, Target, Heart, Star, Briefcase, MessageSquare, Search, PuzzleIcon, HandHeart, GraduationCap, Clock, Globe } from 'lucide-react';
+import { useAnimation } from '../hooks/useAnimation';
+import {
+  fadeInUp,
+  fadeIn,
+  slideFromLeft,
+  slideFromRight,
+  scaleUp,
+  bounceInUp,
+  rotateIn,
+} from '../utils/animations';
 
 
 const CLIENT_SUCCESS_STORIES = [
@@ -133,7 +143,30 @@ const GROWTH_MILESTONES = [
 export const Achievements = () => {
   const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
+  // sec1: 実績紹介（ダーク背景）- アニメーション不要のためref削除
+
+  // sec2: 支援プロセス（ライト背景）
+  const processTitleRef = useRef(null);
+  const processGridRef = useRef(null);
+
+  // sec3: お客様の声（白背景）
+  const clientTitleRef = useRef(null);
+  const clientStory1Ref = useRef(null);
+  const clientStory2Ref = useRef(null);
+  const clientStory3Ref = useRef(null);
+
+  // sec4: 営業哲学（ダーク背景）
+  const philosophyTitleRef = useRef(null);
+  const philosophyGridRef = useRef(null);
+
+  // sec5: 成長タイムライン（グラデーション背景）
+  const timelineTitleRef = useRef(null);
+  const milestone1Ref = useRef(null);
+  const milestone2Ref = useRef(null);
+  const milestone3Ref = useRef(null);
+  const milestone4Ref = useRef(null);
+
+  useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
@@ -141,6 +174,110 @@ export const Achievements = () => {
     setIsLoading(false);
     window.scrollTo(0, 0);
   };
+
+  // sec1: 実績紹介のアニメーション - 削除（MVにはアニメーション不要）
+
+  // sec2: 支援プロセスのアニメーション
+  useAnimation({
+    triggerElements: [
+      {
+        element: processTitleRef,
+        animationType: 'scaleUp',
+        animationOptions: { duration: 1.2, ease: 'power3.out' }
+      },
+      {
+        element: processGridRef,
+        animationType: 'fadeInUp',
+        animationOptions: { distance: 50, duration: 1.0, ease: 'power3.out' },
+        position: "-=0.5"
+      }
+    ],
+    scrollTriggerOptions: { start: "top 85%" }
+  });
+
+  // sec3: お客様の声のアニメーション
+  useAnimation({
+    triggerElements: [
+      {
+        element: clientTitleRef,
+        animationType: 'scaleUp',
+        animationOptions: { duration: 1.2, ease: 'power3.out' }
+      },
+      {
+        element: clientStory1Ref,
+        animationType: 'slideFromLeft',
+        animationOptions: { distance: 60, duration: 0.9, ease: 'power3.out' },
+        position: "-=0.4"
+      },
+      {
+        element: clientStory2Ref,
+        animationType: 'slideFromRight',
+        animationOptions: { distance: 60, duration: 0.9, ease: 'power3.out' },
+        position: "-=0.5"
+      },
+      {
+        element: clientStory3Ref,
+        animationType: 'slideFromLeft',
+        animationOptions: { distance: 60, duration: 0.9, ease: 'power3.out' },
+        position: "-=0.5"
+      }
+    ],
+    scrollTriggerOptions: { start: "top 85%" }
+  });
+
+  // sec4: 営業哲学のアニメーション
+  useAnimation({
+    triggerElements: [
+      {
+        element: philosophyTitleRef,
+        animationType: 'scaleUp',
+        animationOptions: { duration: 1.2, ease: 'power3.out' }
+      },
+      {
+        element: philosophyGridRef,
+        animationType: 'fadeInUp',
+        animationOptions: { distance: 50, duration: 1.0, ease: 'power3.out' },
+        position: "-=0.5"
+      }
+    ],
+    scrollTriggerOptions: { start: "top 85%" }
+  });
+
+  // sec5: 成長タイムラインのアニメーション
+  useAnimation({
+    triggerElements: [
+      {
+        element: timelineTitleRef,
+        animationType: 'scaleUp',
+        animationOptions: { duration: 1.2, ease: 'power3.out' }
+      },
+      {
+        element: milestone1Ref,
+        animationType: 'slideFromLeft',
+        animationOptions: { distance: 80, duration: 0.9, ease: 'power3.out' },
+        position: "-=0.4"
+      },
+      {
+        element: milestone2Ref,
+        animationType: 'slideFromRight',
+        animationOptions: { distance: 80, duration: 0.9, ease: 'power3.out' },
+        position: "-=0.5"
+      },
+      {
+        element: milestone3Ref,
+        animationType: 'slideFromLeft',
+        animationOptions: { distance: 80, duration: 0.9, ease: 'power3.out' },
+        position: "-=0.5"
+      },
+      {
+        element: milestone4Ref,
+        animationType: 'slideFromRight',
+        animationOptions: { distance: 80, duration: 0.9, ease: 'power3.out' },
+        position: "-=0.5"
+      }
+    ],
+    scrollTriggerOptions: { start: "top 85%" }
+  });
 
   return (
     <>
@@ -155,13 +292,13 @@ export const Achievements = () => {
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(239,68,68,0.15)_0%,transparent_70%)]"></div>
               
               <div className="max-w-screen-2xl mx-auto relative z-10 text-center">
-                
+
                 <h1 className="font-lora text-6xl md:text-7xl lg:text-9xl font-black leading-tight mb-8">
                   <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">
                     実績
                   </span>
                 </h1>
-                
+
                 <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 font-light leading-relaxed max-w-4xl mx-auto">
                   営業の設計士として<br />
                   <span className="text-white font-semibold">確かな結果を積み重ねてきた軌跡</span>
@@ -174,7 +311,7 @@ export const Achievements = () => {
             {/* 支援プロセス */}
             <section className="w-full px-8 py-24 md:py-32 bg-gradient-to-br from-gray-50 to-white">
               <div className="max-w-screen-2xl mx-auto">
-                <div className="text-center mb-16 md:mb-20">
+                <div ref={processTitleRef} className="text-center mb-16 md:mb-20">
                   <h3 className="font-lora text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6">
                     支援プロセス
                   </h3>
@@ -183,7 +320,7 @@ export const Achievements = () => {
                   </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+                <div ref={processGridRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
                   {SUPPORT_PROCESS.map((process, index) => (
                     <div key={index} className="group relative">
                       <div className="bg-white rounded-3xl p-8 border border-gray-200 hover:shadow-xl transition-all duration-500 relative overflow-hidden">
@@ -221,7 +358,7 @@ export const Achievements = () => {
             {/* お客様の声 */}
             <section className="w-full px-8 py-24 md:py-32 bg-white">
               <div className="max-w-screen-2xl mx-auto">
-                <div className="text-center mb-16 md:mb-20">
+                <div ref={clientTitleRef} className="text-center mb-16 md:mb-20">
                   <h3 className="font-lora text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6">
                     お客様の声
                   </h3>
@@ -232,7 +369,7 @@ export const Achievements = () => {
 
                 <div className="space-y-16 md:space-y-20">
                   {CLIENT_SUCCESS_STORIES.map((story, index) => (
-                    <div key={index} className="group">
+                    <div key={index} ref={index === 0 ? clientStory1Ref : index === 1 ? clientStory2Ref : clientStory3Ref} className="group">
                       <div className={`bg-gradient-to-br ${story.bgGradient} rounded-3xl p-8 md:p-12 border border-gray-200 hover:shadow-2xl transition-all duration-700`}>
                         <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-center">
                           
@@ -328,7 +465,7 @@ export const Achievements = () => {
             {/* 営業哲学 */}
             <section className="w-full px-8 py-24 md:py-32 bg-gradient-to-br from-gray-900 to-black text-white">
               <div className="max-w-screen-2xl mx-auto">
-                <div className="text-center mb-16 md:mb-20">
+                <div ref={philosophyTitleRef} className="text-center mb-16 md:mb-20">
                   <h3 className="font-lora text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
                     <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                       営業哲学
@@ -339,7 +476,7 @@ export const Achievements = () => {
                   </p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+                <div ref={philosophyGridRef} className="grid md:grid-cols-3 gap-8 md:gap-12">
                   {SALES_PHILOSOPHY.map((item, index) => (
                     <div key={index} className="group">
                       <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-all duration-500">
@@ -368,7 +505,7 @@ export const Achievements = () => {
             {/* 成長タイムライン */}
             <section className="w-full px-8 py-24 md:py-32 bg-gradient-to-br from-white via-gray-50 to-white">
               <div className="max-w-screen-2xl mx-auto">
-                <div className="text-center mb-16 md:mb-20">
+                <div ref={timelineTitleRef} className="text-center mb-16 md:mb-20">
                   <h3 className="font-lora text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6">
                     成長の軌跡
                   </h3>
@@ -380,7 +517,7 @@ export const Achievements = () => {
                 {/* モバイル用 */}
                 <div className="lg:hidden space-y-12">
                   {GROWTH_MILESTONES.map((milestone, index) => (
-                    <div key={index} className="relative">
+                    <div key={index} ref={index === 0 ? milestone1Ref : index === 1 ? milestone2Ref : index === 2 ? milestone3Ref : milestone4Ref} className="relative">
                       <div className="flex items-start space-x-4">
                         <div className={`w-12 h-12 bg-gradient-to-br ${milestone.gradient} rounded-full flex items-center justify-center shadow-xl flex-shrink-0 mt-2`}>
                           <span className="text-white font-bold text-sm">
@@ -414,10 +551,10 @@ export const Achievements = () => {
                 {/* デスクトップ用 */}
                 <div className="hidden lg:block relative">
                   <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-red-500 via-blue-500 via-green-500 to-purple-500 transform -translate-x-1/2"></div>
-                  
+
                   <div className="space-y-20">
                     {GROWTH_MILESTONES.map((milestone, index) => (
-                      <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                      <div key={index} ref={index === 0 ? milestone1Ref : index === 1 ? milestone2Ref : index === 2 ? milestone3Ref : milestone4Ref} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
                         <div className="w-5/12">
                           <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-500">
                             <div className="flex items-center space-x-4 mb-4">
