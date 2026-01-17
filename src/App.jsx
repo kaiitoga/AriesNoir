@@ -4,7 +4,6 @@ import { LoadingScreen } from './Components/Common/Animation/LoadingScreen'
 import { Home } from './Page/Home'
 import { Life_Chapters } from './Page/Life_Chapters'
 import { Achievements } from './Page/Achievements'
-import { Business } from './Page/Business'
 import { Salesadvisor } from './Page/Salesadvisor'
 import { Contact } from './Page/Contact'
 
@@ -73,7 +72,6 @@ export const App = () => {
             <Route path="/" element={<Home isLoading={isLoading} />} />
             <Route path="/life_chapters" element={<Life_Chapters isLoading={isLoading} />} />
             <Route path="/achievements" element={<Achievements isLoading={isLoading} />} />
-            <Route path="/business" element={<Business isLoading={isLoading} />} />
             <Route path="/salesadvisor" element={<Salesadvisor isLoading={isLoading} />} />
             <Route path="/contact" element={<Contact isLoading={isLoading} />} />
           </Routes>

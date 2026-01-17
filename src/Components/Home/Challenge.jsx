@@ -74,7 +74,7 @@ export const Challenge = () => {
           </div>
           <div ref={contentRef} className="mt-4">
             <p className="font-semibold xl:text-lg 2xl:text-xl">
-              「喜びを共有する場所を創りたい」という想いからイベント事業を始めて5年。<br />
+              「喜びを共有する場所を創りたい」という想いからイベント事業を始めました。<br />
               多くの人々が笑顔になる瞬間を見るたびに、もっと多様な形で人々を豊かにできないかと考えるようになりました。<br />
               そこで決断したのが<span className="text-red-600 border-b-2 border-red-600">2つの大きな挑戦</span>です。<br />
               まず1つ目は<span className="text-red-600 border-b-2 border-red-600">美容サロン事業への参入</span><br />

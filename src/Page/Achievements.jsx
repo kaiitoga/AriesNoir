@@ -305,7 +305,7 @@ export const Achievements = ({ isLoading }) => {
             {/* 支援プロセス */}
             <section className="w-full px-8 py-24 md:py-32 bg-gradient-to-br from-gray-50 to-white">
               <div className="max-w-screen-2xl mx-auto">
-                <div ref={processTitleRef} className="text-center mb-16 md:mb-20">
+                <div ref={processTitleRef} className="text-center mb-16 md:mb-20" style={{ opacity: 0 }}>
                   <h3 className="font-lora text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6">
                     支援プロセス
                   </h3>
@@ -314,7 +314,7 @@ export const Achievements = ({ isLoading }) => {
                   </p>
                 </div>
 
-                <div ref={processGridRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+                <div ref={processGridRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12" style={{ opacity: 0 }}>
                   {SUPPORT_PROCESS.map((process, index) => (
                     <div key={index} className="group relative">
                       <div className="bg-white rounded-3xl p-8 border border-gray-200 hover:shadow-xl transition-all duration-500 relative overflow-hidden">

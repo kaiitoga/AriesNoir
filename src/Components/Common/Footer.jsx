@@ -40,7 +40,8 @@ export const Footer = () => {
                 { name: 'ホーム', href: '/' },
                 { name: 'これまで', href: '/life_chapters' },
                 { name: '実績', href: '/achievements' },
-                { name: '会社について', href: '/business' },
+                { name: '営業顧問', href: '/salesadvisor' },
+                // { name: '会社について', href: '/business' },
                 { name: 'お問い合わせ', href: '/contact' }
               ].map((link, index) => (
                 <CustomLink
@@ -83,7 +84,7 @@ export const Footer = () => {
 
         {/* 区切り線 */}
         <div className="border-t border-gray-700/50 text-center py-3 md:py-4 lg:py-6">
-              <p className="text-gray-500 text-base md:text-xl">© 2025 - アリエスノワール</p>
+              <p className="text-gray-500 text-base md:text-xl">© 2025 - ARIES NOIR</p>
         </div>
       </div>
     </footer>

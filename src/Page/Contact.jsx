@@ -35,13 +35,14 @@ export const Contact = ({ isLoading }) => {
                           className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:outline-none transition-colors duration-300 text-gray-900 text-lg"
                         >
                           <option value="">選択してください</option>
-                          <option value="美容サロンについて">
-                            美容サロンについて
+                          <option value="営業顧問サービスについて">
+                            営業顧問サービスについて
                           </option>
-                          <option value="BAR事業について">BAR事業について</option>
-                          <option value="採用情報について">
-                            採用情報について
+                          <option value="営業研修・コンサルティング">営業研修・コンサルティング</option>
+                          <option value="講演・セミナー依頼">
+                            講演・セミナー依頼
                           </option>
+                          <option value="個別営業相談">個別営業相談</option>
                           <option value="その他">その他</option>
                         </select>
                       </div>
@@ -107,11 +108,10 @@ export const Contact = ({ isLoading }) => {
                           rows="6"
                           className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:outline-none transition-colors duration-300 text-gray-900 text-lg resize-none"
                           placeholder={`ご質問・ご相談の詳細をお聞かせください
-
 例：
-・美容サロンの料金について詳しく知りたい
-・BARの貸切について相談したい
-・採用面接について問い合わせたい`}
+・営業チームの売上が伸び悩んでいる
+・営業戦略の見直しについて相談したい
+・講演・セミナーの開催について相談したい`}
                         />
                       </div>
 

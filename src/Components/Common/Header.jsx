@@ -22,8 +22,8 @@ export const Header = () => {
     <>
       <div className="w-full max-w-screen-2xl fixed top-0 z-50 bg-red-600">
         <div className="w-full mx-auto flex justify-between items-center p-4">
-          <CustomLink to="/" className="text-2xl font-bold text-white tracking-wide">
-            アリエスノワール
+          <CustomLink to="/" className="text-2xl font-black text-white tracking-widest font-mono uppercase">
+            ARIES NOIR
           </CustomLink>
           <button
             onClick={toggleMenu}
@@ -137,6 +137,7 @@ export const Header = () => {
               営業顧問
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-red-200 to-transparent group-hover:w-full transition-all duration-500" />
             </CustomLink>
+{/*
             <CustomLink
               to="/business"
               onClick={toggleMenu}
@@ -148,6 +149,7 @@ export const Header = () => {
               会社について
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-red-200 to-transparent group-hover:w-full transition-all duration-500" />
             </CustomLink>
+*/}
             <CustomLink
               to="/contact"
               onClick={toggleMenu}
