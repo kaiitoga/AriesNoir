@@ -3,6 +3,7 @@ import { Header } from "../Components/Common/Header";
 import { Footer } from "../Components/Common/Footer";
 import { useAnimation } from "../hooks/useAnimation";
 import { TrendingUp, Users, Target, Award, Zap, ArrowRight, Phone, Mail, Calendar, DollarSign, LineChart, Rocket, MessageSquare, CheckCircle } from "lucide-react";
+import { CustomLink } from "../Components/Common/CustomLink";
 
 export const Salesadvisor = ({ isLoading }) => {
 
@@ -173,9 +174,9 @@ export const Salesadvisor = ({ isLoading }) => {
             {/* 対角線で分割 */}
             <div className="absolute inset-0">
               <div className="absolute inset-0 bg-gradient-to-br from-red-600 via-red-700 to-black" 
-                   style={{ clipPath: 'polygon(0 0, 100% 0, 100% 70%, 0 100%)' }}></div>
+                style={{ clipPath: 'polygon(0 0, 100% 0, 100% 70%, 0 100%)' }}></div>
               <div className="absolute inset-0 bg-black" 
-                   style={{ clipPath: 'polygon(0 100%, 100% 70%, 100% 100%, 0 100%)' }}></div>
+                style={{ clipPath: 'polygon(0 100%, 100% 70%, 100% 100%, 0 100%)' }}></div>
             </div>
 
             {/* コンテンツ */}
@@ -206,15 +207,15 @@ export const Salesadvisor = ({ isLoading }) => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6">
-                  <a href="#apply"
+                  <CustomLink to="/contact"
                      className="group bg-white text-black px-6 sm:px-8 lg:px-10 py-4 sm:py-5 font-black text-base sm:text-lg hover:bg-red-500 hover:text-white transition-all inline-flex items-center justify-center gap-3">
                     顧問契約を申し込む
                     <ArrowRight className="group-hover:translate-x-2 transition-transform" />
-                  </a>
-                  <a href="#case"
+                  </CustomLink>
+                  <CustomLink to="/achievements"
                      className="border-2 border-white text-white px-6 sm:px-8 lg:px-10 py-4 sm:py-5 font-black text-base sm:text-lg hover:bg-white hover:text-black transition-all inline-flex items-center justify-center gap-3">
-                    支援事例を見る
-                  </a>
+                    実績を見る
+                  </CustomLink>
                 </div>
 
                 {/* 実績バッジ - 斜めに配置 */}
@@ -626,11 +627,11 @@ export const Salesadvisor = ({ isLoading }) => {
                       <span className="font-bold">対応エリア：</span> 全国<br className="sm:hidden" />(オンライン対応可)
                     </div>
                   </div>
-                  <a href="#apply"
-                     className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-red-600 to-red-500 text-white px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 rounded-full font-black text-base sm:text-lg lg:text-xl hover:shadow-2xl hover:shadow-red-500/50 transition-all transform hover:scale-105 w-full sm:w-auto">
+                  <CustomLink to="/contact" 
+                    className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-red-600 to-red-500 text-white px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 rounded-full font-black text-base sm:text-lg lg:text-xl hover:shadow-2xl hover:shadow-red-500/50 transition-all transform hover:scale-105 w-full sm:w-auto">
                     無料相談を申し込む
                     <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
-                  </a>
+                  </CustomLink>
                 </div>
               </div>
             </div>

@@ -99,9 +99,6 @@ export const LifeChanging = () => {
                  </p>
 
                  <p className="text-xl md:text-2xl text-white/95 leading-relaxed">
-                   美容で自信を与え、空間で心を豊かにする。
-                   <br />
-                   ただのサービス業ではない、
                    <span className="text-cyan-400 font-semibold">人生に彩りを添える</span>
                    プロフェッショナルを目指しませんか？
                  </p>

@@ -91,17 +91,13 @@ export const Before = () => {
           <div ref={contentRef} className="mt-4 pr-12 font-semibold md:text-xl lg:text-2xl max-w-xl lg:max-w-2xl">
             <p>
               私の起業のきっかけは、イベント運営での
-              <span className="text-red-600 border-b-2 border-red-600">感動的な体験</span>
-              でした。人々が一つの空間で楽しみ、
-              <span className="text-red-600 border-b-2 border-red-600">喜びを共有する瞬間に</span>
-              、ビジネスの本質を見出したのです。
+              <span className="text-red-600 border-b-2 border-red-600">感動的な体験</span>でした。<br />
+              人々が一つの空間で楽しみ、
+              <span className="text-red-600 border-b-2 border-red-600">喜びを共有する瞬間に</span>、ビジネスの本質を見出したのです。
             </p>
             <p>
-              その経験から、
-              <span className="text-red-600 border-b-2 border-red-600">人々の生活を豊かにする場の創造</span>
-              と
-              <span className="text-red-600 border-b-2 border-red-600">コミュニティの力</span>
-              を学びました。様々な経験を積み、より多面的に人々の喜びに貢献したいという思いが強くなり、アリエスノワールを創業するに至りました。
+              その経験から、<span className="text-red-600 border-b-2 border-red-600">人々の生活を豊かにする場の創造</span>と<span className="text-red-600 border-b-2 border-red-600">コミュニティの力</span>を学びました。<br />
+              様々な経験を積み、より多面的に人々の喜びに貢献したいという思いが強くなり、アリエスノワールを創業するに至りました。
             </p>
           </div>
         </div>

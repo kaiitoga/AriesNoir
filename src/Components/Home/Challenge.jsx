@@ -76,12 +76,15 @@ export const Challenge = () => {
             <p className="font-semibold xl:text-lg 2xl:text-xl">
               「喜びを共有する場所を創りたい」という想いからイベント事業を始めました。<br />
               多くの人々が笑顔になる瞬間を見るたびに、もっと多様な形で人々を豊かにできないかと考えるようになりました。<br />
+              <br />
               そこで決断したのが<span className="text-red-600 border-b-2 border-red-600">2つの大きな挑戦</span>です。<br />
               まず1つ目は<span className="text-red-600 border-b-2 border-red-600">美容サロン事業への参入</span><br />
               「デキる男」をプロデュースするという明確なコンセプトを掲げて、美容に関心はあるものの一歩を踏み出せない男性たちに新たな可能性を提供しました。<br />
               2つ目は<span className="text-red-600 border-b-2 border-red-600">BAR運営</span>です<br />
               イベント事業の経験を活かし、団体様の貸切やイベント利用にも柔軟に対応することで、飲食店だけではない価値提供を実現しています。<br />
-              どの事業も根底にあるのは「人々の人生に彩りを添えたい」という変わらぬ情熱です。
+              どの事業も根底にあるのは「人々の人生に彩りを添えたい」という変わらぬ情熱です。<br />
+              <br />
+              そして現在、これまでに培ってきた経験を活かし、<span className="text-red-600 border-b-2 border-red-600">新たな挑戦として営業顧問事業</span>をスタートしています。
             </p>
           </div>
         </div>
