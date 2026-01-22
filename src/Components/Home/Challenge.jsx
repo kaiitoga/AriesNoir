@@ -47,8 +47,8 @@ export const Challenge = () => {
 
   return (
     <section className="w-full px-8 py-16 lg:pt-36 bg-red-600 overflow-hidden">
-      <div className="flex flex-col lg:flex-row lg:items-start">
-        <div ref={imageRef} className="order-1 lg:order-2 w-96 -mb-10 -mr-7 lg:w-[380px] lg:-mt-20 lg:-ml-24 xl:w-[430px] xl:-ml-20 xl:-mt-14 2xl:w-[600px] 2xl:-ml-24 2xl:-mt-28">
+      <div className="flex flex-col items-center xl:flex-row xl:items-start">
+        <div ref={imageRef} className="order-1 xl:order-2 w-72 sm:w-80 md:w-[22rem] lg:w-[26rem] xl:w-[500px] xl:ml-6 2xl:w-[580px] 2xl:ml-10">
           <img
             src="../img/human/photo1.jpg"
             alt="photo1"
@@ -56,7 +56,7 @@ export const Challenge = () => {
           />
         </div>
 
-        <div className="order-2 lg:order-1 bg-gray-50 px-4 py-8 max-w-2xl xl:max-w-4xl relative z-10 flex-shrink-0">
+        <div className="order-2 xl:order-1 bg-gray-50 px-4 py-8 max-w-[90%] sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-3xl 2xl:max-w-4xl relative z-10 flex-shrink-0">
           <h2 ref={titleRef} className="font-bold text-2xl xl:text-3xl 2xl:text-4xl p-1">
             アリエスノワールの
             <span className="font-extrabold text-4xl xl:text-5xl 2xl:text-6xl">挑戦</span>

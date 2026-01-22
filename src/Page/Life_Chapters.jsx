@@ -10,12 +10,12 @@ const LIFE_CHAPTERS = [
     title: "幼少期・学生時代",
     subtitle: "人を巻き込む才能の開花",
     keyPoints: [
-      "千葉県千葉市花見川区で誕生（1996年9月18日）",
+      "千葉県千葉市緑区で誕生（1996年9月18日）",
       "人懐っこく、正義感の強い子どもとして成長",
       "好奇心旺盛で、何にでも首を突っ込むタイプ",
       "中学・高校時代は人間関係・イベント企画・文化祭の仕切り役が得意"
     ],
-    description: "自然豊かな環境で育ち、小さい頃から「人を巻き込んで場をつくる」感覚が芽生えていた。学業よりも人とのつながりを重視し、リーダーシップを発揮する場面が多かった。",
+    description: "自然豊かな環境で育ち、小さい頃から「人を巻き込んで場をつくる」感覚が芽生えていた。学業に非常に秀でていて人との繋がりも強く、リーダーシップを発揮する場面が多かった。",
     icon: <Star className="w-8 h-8" />,
     gradient: "from-blue-400 via-indigo-500 to-purple-600"
   },
@@ -30,7 +30,7 @@ const LIFE_CHAPTERS = [
       "学生時代から社会人イベントを主催（300〜400人規模）",
       "累計2,000人以上の動員実績を達成"
     ],
-    description: "教育への関心から教員免許を取得するも、学校という枠に収まらない価値観を強く感じる。一方で、大規模イベントの主催を通じて「人を巻き込んで場をつくる」才能が本格開花。",
+    description: "教育への関心から教員免許を取得するも、学校という枠に収まらない価値観を強く感じる。",
     icon: <GraduationCap className="w-8 h-8" />,
     gradient: "from-emerald-400 via-teal-500 to-cyan-600"
   },
@@ -39,11 +39,10 @@ const LIFE_CHAPTERS = [
     title: "新卒社会人時代",
     subtitle: "軍隊のような営業文化との出会い",
     keyPoints: [
-      "株式会社大塚商会に新卒入社（東証一部上場の大手IT商社）",
+      "株式会社大塚商会に新卒入社",
       "入社直後に2ヶ月で1,000件の飛び込み営業を経験",
       "軍隊のような営業体制で「根性・努力・執念」を叩き込まれる",
-      "当時の恋人に安定を求められ価値観が衝突",
-      "「自分の人生を生きる」と決意し、退職を決断"
+      "大規模イベントの主催を通じて「人を巻き込んで場をつくる」才能が本格開花"
     ],
     description: "大塚商会での厳しい営業経験が、後の「ぶち上げマインド」の原点となる。根性・努力・執念を叩き込まれた一方で、自分らしい人生を歩む決意を固めた転機の時期。",
     icon: <Briefcase className="w-8 h-8" />,
@@ -55,7 +54,7 @@ const LIFE_CHAPTERS = [
     subtitle: "やりたいことへの挑戦と極限状態",
     keyPoints: [
       "イベント・アパレル・オーダースーツなど次々と事業に挑戦",
-      "しかし収益化できず、税金未納・借金・口座差し押さえ",
+      "しかし収益化できず、税金未納・借金・口座差し押さえ・ホームレス",
       "家には帰れず、住む場所を転々とする日々",
       "わずかな食事で命をつなぐ極限状態を経験",
       "「生きてさえいれば何か起きる」と信じ、ギリギリを這い続ける"
@@ -323,7 +322,7 @@ export const Life_Chapters = ({ isLoading }) => {
                             </p>
                             
                             <div className="space-y-3">
-                              {chapter.keyPoints.slice(0, 2).map((point, pointIndex) => (
+                              {chapter.keyPoints.map((point, pointIndex) => (
                                 <div key={pointIndex} className="flex items-start space-x-3">
                                   <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${chapter.gradient} mt-2 flex-shrink-0`}></div>
                                   <p className="text-gray-400 leading-relaxed text-xs">{point}</p>
@@ -344,7 +343,7 @@ export const Life_Chapters = ({ isLoading }) => {
                         className="absolute w-full max-w-lg chapter-card"
                         style={{
                           top: `${[0, 250, 480, 720, 960][index]}px`,
-                          left: `${[8, 52, 15, 58, 30][index]}%`,
+                          left: `${[8, 52, 15, 58, 20][index]}%`,
                           transform: `rotate(${[-0.8, 0.6, -0.4, 0.9, -0.5][index]}deg)`,
                           zIndex: 5 - index
                         }}
@@ -370,7 +369,7 @@ export const Life_Chapters = ({ isLoading }) => {
                             </p>
                             
                             <div className="space-y-3">
-                              {chapter.keyPoints.slice(0, 3).map((point, pointIndex) => (
+                              {chapter.keyPoints.map((point, pointIndex) => (
                                 <div key={pointIndex} className="flex items-start space-x-3">
                                   <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${chapter.gradient} mt-2 flex-shrink-0`}></div>
                                   <p className="text-gray-400 leading-relaxed text-sm">{point}</p>

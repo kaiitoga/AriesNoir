@@ -71,7 +71,7 @@ export const Before = () => {
           className="hidden md:block"
           style={{ writingMode: "vertical-rl" }}
         >
-          <h2 className="font-bold text-4xl lg:text-5xl">
+          <h2 className="font-bold text-4xl lg:text-5xl whitespace-nowrap">
             代表 若菜の<span className="text-red-600">「これまで」</span>
           </h2>
         </div>
