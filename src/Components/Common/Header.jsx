@@ -23,7 +23,7 @@ export const Header = () => {
       <div className="w-full max-w-screen-2xl fixed top-0 z-50 bg-red-600">
         <div className="w-full mx-auto flex justify-between items-center p-4">
           <CustomLink to="/" className="text-2xl font-black text-white tracking-widest font-mono uppercase">
-            ARIES NOIR
+            ARIESS NOIR
           </CustomLink>
           <button
             onClick={toggleMenu}

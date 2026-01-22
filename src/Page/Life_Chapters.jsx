@@ -281,7 +281,7 @@ export const Life_Chapters = ({ isLoading }) => {
                   </p>
 
                   <div className="flex items-center space-x-3">
-                    <span className="text-gray-400 text-lg">千葉県千葉市花見川区 → 全国</span>
+                    <span className="text-gray-400 text-lg">千葉県千葉市緑区 → 全国</span>
                   </div>
                 </div>
               </div>
